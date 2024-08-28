@@ -1,0 +1,29 @@
+from behave import given, when, then
+
+@given('Open main page')
+def verify_open_main_page(context):
+    context.app.main_page.open()
+
+@given('Log in')
+def verify_log_in(context):
+    context.app.signin_page.login()
+
+@when('Click on settings option')
+def verify_open_settings(context):
+    context.app.main_page.open_settings()
+
+@when('Click on Subscription & payments option')
+def open_subscription(context):
+    context.app.settings_page.open_subscription_payments()
+
+@then('Verify the subscription page opens')
+def verify_subsription_page(context):
+    context.app.subscription_page.verify_partial_url('/subscription')
+
+@then('Verify title “Subscription & payments” is visible')
+def verify_subscription_title(context):
+    context.app.subscription_page.verify_title()
+
+@then('Verify “back” and “upgrade plan” buttons are available')
+def verify_buttons(context):
+    context.app.subscription_page.verify_btns()
