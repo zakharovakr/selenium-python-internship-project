@@ -1,8 +1,11 @@
 from behave import given, when, then
+from time import sleep
 
 @given('Open main page')
 def verify_open_main_page(context):
     context.app.main_page.open()
+    # couldn't get rid of this 'sleep' - the page reloads in Firefox, couldn't figure out any better waits
+    sleep(5)
 
 @given('Log in')
 def verify_log_in(context):
@@ -11,6 +14,7 @@ def verify_log_in(context):
 @when('Click on settings option')
 def verify_open_settings(context):
     context.app.main_page.open_settings()
+
 
 @when('Click on Subscription & payments option')
 def open_subscription(context):
