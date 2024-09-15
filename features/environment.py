@@ -40,15 +40,16 @@ def browser_init(context, scenario_name):
 
     options = Options()
     bstack_options = {
-        "os" : "Windows",
-        "osVersion" : "11",
-        'browserName': 'edge',
-        'sessionName': scenario_name
+
+        "deviceName":"Google Pixel 8",
+        "osVersion": "14",
+        "browserName": "chrome",
+        "sessionName": scenario_name
     }
     options.set_capability('bstack:options', bstack_options)
     context.driver = webdriver.Remote(command_executor=url, options=options)
 
-    context.driver.maximize_window()
+    # context.driver.maximize_window()
     context.driver.implicitly_wait(4)
     context.driver.wait = WebDriverWait(context.driver, 10)
 

@@ -11,6 +11,14 @@ def verify_open_main_page(context):
 def verify_log_in(context):
     context.app.signin_page.login()
 
+@when('Click on Main menu')
+def click_main_menu(context):
+    context.app.main_page.open_main_menu_mobile()
+
+@when('Click on User Icon')
+def click_user_icon_mobile(context):
+    context.app.main_page.click_user_icon_mobile()
+
 @when('Click on settings option')
 def verify_open_settings(context):
     context.app.main_page.open_settings()
